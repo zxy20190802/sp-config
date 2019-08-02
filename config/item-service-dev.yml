@@ -2,23 +2,23 @@ spring:
   application:
     name: item-service
     
-server:
-  port: 8001
-
-eureka:
-  client:
-    service-url:  #当一个 eureka 服务宕机时，仍可以连接另一个 eureka 服务
-      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
-
-#---
-#spring:
-#  profiles: item1
-  
 #server:
 #  port: 8001
-#---
-#spring:
-#  profiles: item2
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
 
-#server:
-#  port: 8002
+---
+spring:
+  profiles: item1
+  
+server:
+  port: 8001
+---
+spring:
+  profiles: item2
+
+server:
+  port: 8002
